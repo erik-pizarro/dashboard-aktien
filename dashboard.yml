@@ -1,0 +1,58 @@
+# .github/workflows/dashboard.yml
+# Aktualisiert das WKN-Dashboard taeglich und veroeffentlicht es auf GitHub Pages.
+#
+# Hinweis Zeitzone: GitHub-Actions-cron laeuft IMMER in UTC.
+#   08:00 Europe/Berlin = 06:00 UTC im Sommer (CEST, UTC+2)
+#                       = 07:00 UTC im Winter (CET,  UTC+1)
+# Damit es ganzjaehrig ~08:00 lokal trifft, laufen unten beide Zeiten;
+# der Job ist idempotent (er ueberschreibt nur die HTML), ein Doppellauf schadet nicht.
+
+name: AaA Dashboard Update
+
+on:
+  schedule:
+    - cron: "0 6 * * *"   # 08:00 Berlin (Sommerzeit)
+    - cron: "0 7 * * *"   # 08:00 Berlin (Winterzeit)
+  workflow_dispatch: {}   # erlaubt manuelles Ausloesen per Button
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Abhaengigkeiten
+        run: pip install requests beautifulsoup4
+
+      - name: Dashboard aktualisieren
+        env:
+          MARKETDATA_API_KEY: ${{ secrets.MARKETDATA_API_KEY }}   # optional, fuer fetch_metrics
+        run: python update_dashboard.py
+
+      - name: Aenderungen committen
+        run: |
+          git config user.name  "dashboard-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add dashboard.html
+          git commit -m "Dashboard-Update $(date -u +%Y-%m-%d)" || echo "keine Aenderungen"
+          git push
+
+  # Optional: dashboard.html als GitHub Page veroeffentlichen
+  deploy:
+    needs: update
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - uses: actions/deploy-pages@v4
