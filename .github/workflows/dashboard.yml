@@ -1,0 +1,44 @@
+# .github/workflows/dashboard.yml
+# Aktualisiert das WKN-Dashboard taeglich. Veroeffentlichung uebernimmt GitHub Pages
+# direkt aus dem Branch (Settings -> Pages -> Source: "Deploy from a branch", main / root).
+#
+# Zeitzone: GitHub-cron laeuft in UTC. 08:00 Berlin = 06:00 UTC (Sommer) / 07:00 UTC (Winter);
+# darum beide Zeiten. Der Job ist idempotent, ein Doppellauf schadet nicht.
+
+name: AaA Dashboard Update
+
+on:
+  schedule:
+    - cron: "0 6 * * *"   # 08:00 Berlin (Sommerzeit)
+    - cron: "0 7 * * *"   # 08:00 Berlin (Winterzeit)
+  workflow_dispatch: {}   # manuelles Ausloesen per Button
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Abhaengigkeiten
+        run: pip install requests
+
+      - name: Dashboard aktualisieren
+        env:
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}   # fuer die Trade-Republic-Pruefung
+          GOOGLE_CSE_ID:  ${{ secrets.GOOGLE_CSE_ID }}    # Programmable-Search-Engine-ID
+        run: python update_dashboard.py
+
+      - name: Aenderungen committen
+        run: |
+          git config user.name  "dashboard-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add index.html seen_episodes.json
+          git commit -m "Dashboard-Update $(date -u +%Y-%m-%d)" || echo "keine Aenderungen"
+          git push
