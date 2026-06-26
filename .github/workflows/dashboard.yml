@@ -31,18 +31,19 @@ jobs:
           python-version: "3.12"
 
       - name: Abhaengigkeiten
-        run: pip install requests beautifulsoup4
+        run: pip install requests
 
       - name: Dashboard aktualisieren
         env:
-          MARKETDATA_API_KEY: ${{ secrets.MARKETDATA_API_KEY }}   # optional, fuer fetch_metrics
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}   # fuer die Trade-Republic-Pruefung
+          GOOGLE_CSE_ID:  ${{ secrets.GOOGLE_CSE_ID }}    # Programmable-Search-Engine-ID
         run: python update_dashboard.py
 
       - name: Aenderungen committen
         run: |
           git config user.name  "dashboard-bot"
           git config user.email "bot@users.noreply.github.com"
-          git add dashboard.html
+          git add index.html seen_episodes.json
           git commit -m "Dashboard-Update $(date -u +%Y-%m-%d)" || echo "keine Aenderungen"
           git push
 
