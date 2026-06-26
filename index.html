@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="de"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alles auf Aktien - WKN-Dashboard</title>
+<style>
+  :root{--bg:#0d1420;--card:#15223a;--line:#243650;--ink:#e8eef7;--muted:#8ea3bf;
+         --dim:#5e7088;--gain:#46d39a;--loss:#f0697a;--gold:#e6b24c}
+  body{margin:0;background:var(--bg);color:var(--ink);
+        font-family:"Segoe UI",system-ui,Roboto,Arial,sans-serif;line-height:1.5}
+  .wrap{max-width:1040px;margin:0 auto;padding:30px 18px 50px}
+  .eyebrow{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600}
+  h1{font-size:clamp(24px,4vw,34px);margin:.3em 0 .2em}
+  .sub{color:var(--muted);font-size:14.5px}
+  .stamp{margin-top:8px;font-size:12.5px;color:var(--dim)}
+  .stamp b{color:var(--muted)}
+  .scroll{overflow-x:auto;margin-top:22px}
+  table{border-collapse:collapse;width:100%;min-width:820px;
+         background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  th{text-align:left;font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;
+      color:var(--muted);padding:13px 14px;border-bottom:1px solid var(--line);background:#101a2b;white-space:nowrap}
+  th.right,td.right{text-align:right} th.center,td.center{text-align:center}
+  td{padding:12px 14px;border-bottom:1px solid rgba(36,54,80,.55);font-size:14px;
+      font-variant-numeric:tabular-nums;vertical-align:top}
+  tr:last-child td{border-bottom:none}
+  .wkn{font-weight:700}
+  .ep{font-size:12.5px;color:var(--muted);white-space:nowrap}
+  .epsub{display:block;color:var(--dim);font-size:11px;white-space:normal;max-width:26ch}
+  .pos{color:var(--gain);font-weight:600} .neg{color:var(--loss);font-weight:600}
+  .zero{color:var(--muted)} .has{color:var(--gold);font-weight:600} .na{color:var(--dim)}
+  .tr-yes{color:var(--gain);font-weight:600} .tr-no{color:var(--loss);font-weight:600}
+  .disc{margin-top:18px;font-size:12px;color:var(--dim)}
+</style></head><body><div class="wrap">
+  <div class="eyebrow">Alles auf Aktien - automatisch aktualisiert</div>
+  <h1>WKN-Dashboard - Folgen seit 22.06.2026</h1>
+  <p class="sub">5 Folge(n) ab 22.06.2026 ausgewertet - 18 WKN(s) insgesamt</p>
+  <div class="stamp">Letzte Aktualisierung: <b>26.06.2026, 07:06</b></div>
+  <div class="scroll">
+  <table>
+    <thead><tr>
+      <th>WKN</th><th>Wertpapier</th><th>Folge / Datum</th>
+      <th class="right">Rendite 1&nbsp;J.</th><th class="right">Rendite 5&nbsp;J.</th>
+      <th class="right">Div.-Rendite</th><th class="center">Handelbar auf Trade Republic</th>
+    </tr></thead>
+    <tbody>
+<tr><td class="wkn">A2PLTB</td><td>ctro-Mechanics, Samsung Electronics, Vanguard FTSE All-World High Dividend Yield</td><td class="ep"><b>25.06.2026</b><span class="epsub">Rheinmetalls Rekordsturz und Dividenden-ETFs mit Zinseszins-</span></td><td class="right"><span class="na">n. v.</span></td><td class="right"><span class="na">n. v.</span></td><td class="right"><span class="na">n. v.</span></td><td class="center"><span class="na">-</span></td></tr>
+<tr><td class="wkn">A2PKXG</td><td>FTSE All-World</td><td class="ep"><b>25.06.2026</b><span class="epsub">Rheinmetalls Rekordsturz und Dividenden-ETFs mit Zinseszins-</span></td><td class="right"><span class="na">n. v.</span></td><td class="right"><span class="na">n. v.</span></td><td class="right"><span class="na">n. v.</span></td><td class="center"><span class="na">-</span></td></tr>
+<tr><td class="wkn">A2P3WJ</td><td>iShares MSCI World Quality Dividend Advanced</td><td class="ep"><b>25.06.2026</b><span class="epsub">Rheinmetalls Rekordsturz und Dividenden-ETFs mit Zinseszins-</span></td><td class="right"><span class="na">n. v.</span></td><td class="right"><span class="na">n. v.</span></td><td class="right"><span class="na">n. v.</span></td><td class="center"><span class="na">-</span></td></tr>
+<tr><td class="wkn">A0RPWH</td><td>iShares Core MSCI World</td><td class="ep"><b>25.06.2026</b><span class="epsub">Rheinmetalls Rekordsturz und Dividenden-ETFs mit Zinseszins-</span></td><td class="right"><span class="pos">+21,2&nbsp;%</span></td><td class="right"><span class="pos">+70,3&nbsp;%</span></td><td class="right"><span class="zero">0&nbsp;%</span></td><td class="center"><span class="na">-</span></td></tr>
+<tr><td class="wkn">A2QP38</td><td>iShares Euro Stoxx Select Dividend 30</td><td class="ep"><b>25.06.2026</b><span class="epsub">Rheinmetalls Rekordsturz und Dividenden-ETFs mit Zinseszins-</span></td><td class="right"><span class="na">n. v.</span></td><td class="right"><span class="na">n. v.</span></td><td class="right"><span class="na">n. v.</span></td><td class="center"><span class="na">-</span></td></tr>
+<tr><td class="wkn">A2DWQW</td><td>Fidelity Emerging Markets Quality Income</td><td class="ep"><b>25.06.2026</b><span class="epsub">Rheinmetalls Rekordsturz und Dividenden-ETFs mit Zinseszins-</span></td><td class="right"><span class="na">n. v.</span></td><td class="right"><span class="na">n. v.</span></td><td class="right"><span class="na">n. v.</span></td><td class="center"><span class="na">-</span></td></tr>
+<tr><td class="wkn">A3EYCN</td><td>und WisdomTree Megatrends ETF</td><td class="ep"><b>25.06.2026</b><span class="epsub">Rheinmetalls Rekordsturz und Dividenden-ETFs mit Zinseszins-</span></td><td class="right"><span class="na">n. v.</span></td><td class="right"><span class="na">n. v.</span></td><td class="right"><span class="na">n. v.</span></td><td class="center"><span class="na">-</span></td></tr>
+<tr><td class="wkn">A2P29S</td><td>Group, Ecopetrol, Grupo Cibest, Tecnoglass, Vossloh, Global X MSCI Colombia ETF</td><td class="ep"><b>24.06.2026</b><span class="epsub">Die Schleifmeister-Aktie und eine Geheimwette aus der neuen </span></td><td class="right"><span class="na">n. v.</span></td><td class="right"><span class="na">n. v.</span></td><td class="right"><span class="na">n. v.</span></td><td class="center"><span class="na">-</span></td></tr>
+<tr><td class="wkn">A0Q27V</td><td>SPDR Gold Shares</td><td class="ep"><b>23.06.2026</b><span class="epsub">Der Cashflow-Trick bei Gold und ein historischer Tag für SK </span></td><td class="right"><span class="na">n. v.</span></td><td class="right"><span class="na">n. v.</span></td><td class="right"><span class="na">n. v.</span></td><td class="center"><span class="na">-</span></td></tr>
+<tr><td class="wkn">A4AH1M</td><td>IncomeShares Gold+ Yield ETP</td><td class="ep"><b>23.06.2026</b><span class="epsub">Der Cashflow-Trick bei Gold und ein historischer Tag für SK </span></td><td class="right"><span class="na">n. v.</span></td><td class="right"><span class="na">n. v.</span></td><td class="right"><span class="na">n. v.</span></td><td class="center"><span class="na">-</span></td></tr>
+<tr><td class="wkn">EWG2LD</td><td>Euwax Gold II</td><td class="ep"><b>23.06.2026</b><span class="epsub">Der Cashflow-Trick bei Gold und ein historischer Tag für SK </span></td><td class="right"><span class="na">n. v.</span></td><td class="right"><span class="na">n. v.</span></td><td class="right"><span class="na">n. v.</span></td><td class="center"><span class="na">-</span></td></tr>
+<tr><td class="wkn">A2QR39</td><td>Global X Nasdaq 100 Covered Call ETF</td><td class="ep"><b>23.06.2026</b><span class="epsub">Der Cashflow-Trick bei Gold und ein historischer Tag für SK </span></td><td class="right"><span class="na">n. v.</span></td><td class="right"><span class="na">n. v.</span></td><td class="right"><span class="na">n. v.</span></td><td class="center"><span class="na">-</span></td></tr>
+<tr><td class="wkn">A2N6RV</td><td>Invesco EQQQ Nasdaq-100 ETF</td><td class="ep"><b>23.06.2026</b><span class="epsub">Der Cashflow-Trick bei Gold und ein historischer Tag für SK </span></td><td class="right"><span class="na">n. v.</span></td><td class="right"><span class="na">n. v.</span></td><td class="right"><span class="na">n. v.</span></td><td class="center"><span class="na">-</span></td></tr>
+<tr><td class="wkn">A3CVRA</td><td>Apple, PayPal, Sezzle, Affirm, Block, Klarna, iShares MSCI Global Semiconductors</td><td class="ep"><b>22.06.2026</b><span class="epsub">Der Milliarden-Plan für die Rente und die Zukunft des Bezahl</span></td><td class="right"><span class="na">n. v.</span></td><td class="right"><span class="na">n. v.</span></td><td class="right"><span class="na">n. v.</span></td><td class="center"><span class="na">-</span></td></tr>
+<tr><td class="wkn">A418QM</td><td>VanEck Quantum Computing ETF</td><td class="ep"><b>22.06.2026</b><span class="epsub">Der Milliarden-Plan für die Rente und die Zukunft des Bezahl</span></td><td class="right"><span class="na">n. v.</span></td><td class="right"><span class="na">n. v.</span></td><td class="right"><span class="na">n. v.</span></td><td class="center"><span class="na">-</span></td></tr>
+<tr><td class="wkn">A2PEAN</td><td>ARK Fintech Innovation ETF</td><td class="ep"><b>22.06.2026</b><span class="epsub">Der Milliarden-Plan für die Rente und die Zukunft des Bezahl</span></td><td class="right"><span class="na">n. v.</span></td><td class="right"><span class="na">n. v.</span></td><td class="right"><span class="na">n. v.</span></td><td class="center"><span class="na">-</span></td></tr>
+<tr><td class="wkn">A2QPBZ</td><td>Global X FinTech ETF</td><td class="ep"><b>22.06.2026</b><span class="epsub">Der Milliarden-Plan für die Rente und die Zukunft des Bezahl</span></td><td class="right"><span class="na">n. v.</span></td><td class="right"><span class="na">n. v.</span></td><td class="right"><span class="na">n. v.</span></td><td class="center"><span class="na">-</span></td></tr>
+<tr><td class="wkn">A2QJLA</td><td>und BIT Global Fintech Leaders</td><td class="ep"><b>22.06.2026</b><span class="epsub">Der Milliarden-Plan für die Rente und die Zukunft des Bezahl</span></td><td class="right"><span class="na">n. v.</span></td><td class="right"><span class="na">n. v.</span></td><td class="right"><span class="na">n. v.</span></td><td class="center"><span class="na">-</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="disc">Automatisch generiert aus allen Folgen ab 22.06.2026. Gesamtrendite inkl. Ausschuettungen
+  (dividendenbereinigte Kurse); Dividendenrendite = Ausschuettungen der letzten 12 Monate / aktueller Kurs.
+  Spalte "Handelbar auf Trade Republic": automatische Auswertung einer Google-Suche - Heuristik,
+  "unklar" bei unsicherer Faktenlage; massgeblich ist die Suche in der Trade-Republic-App.
+  Vergangene Wertentwicklung ist keine Prognose; keine Anlageempfehlung. "n. v." = nicht abrufbar.</p>
+</div></body></html>
